@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f3fbb4fa-2bbb-40ac-8425-831a2c9cd5b6">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="tgl1" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tgl2" class="java.util.Date"/>
+	<queryString>
+		<![CDATA[SELECT
+     penjualan.`order_no` AS penjualan_order_no,
+     penjualan.`order_date` AS penjualan_order_date,
+     penjualan.`nama_kasir` AS penjualan_nama_kasir,
+     penjualan.`total` AS penjualan_total,
+     penjualan.`bayar` AS penjualan_bayar,
+     penjualan.`kembali` AS penjualan_kembali
+FROM
+     `penjualan` penjualan
+WHERE
+     order_date BETWEEN $P{tgl1} AND $P{tgl2}
+     ]]>
+	</queryString>
+	<field name="penjualan_order_no" class="java.lang.String"/>
+	<field name="penjualan_order_date" class="java.sql.Date"/>
+	<field name="penjualan_nama_kasir" class="java.lang.String"/>
+	<field name="penjualan_total" class="java.lang.String"/>
+	<field name="penjualan_bayar" class="java.lang.String"/>
+	<field name="penjualan_kembali" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="58" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="22" uuid="133c9840-bab6-47c3-a8f1-3aeaa72f6ae5"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RUMAH MAKAN MBAH JARWO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="22" width="555" height="20" uuid="e17710a9-33a7-4c90-8019-f75a9d4e5edd"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Jl. Pahlawan No. 21 - Bugul Kidul, Pasuruan Telp. 0343 9795797]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="48" width="555" height="1" uuid="07c38456-e914-4773-b771-97d701875ff0"/>
+				<graphicElement>
+					<pen lineWidth="1.5"/>
+				</graphicElement>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="48" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="20" uuid="c030e39c-bbda-481d-9c1d-b459e364f4dd"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LAPORAN PENJUALAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="144" y="20" width="57" height="20" uuid="87452dc4-445d-40bb-965f-4efca19e2524"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Periode :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="212" y="20" width="100" height="20" uuid="3999200a-24e4-4250-8c2f-4190ca877fd1"/>
+				<textFieldExpression><![CDATA[$P{tgl1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="324" y="20" width="100" height="20" uuid="c6a15fbf-a696-40cc-a661-bcb934da6023"/>
+				<textFieldExpression><![CDATA[$P{tgl2}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="29" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="9" width="100" height="20" uuid="80e86da5-dd7a-4431-93d5-981765052594"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FAKTUR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="112" y="9" width="100" height="20" uuid="20d7ef30-1167-4e73-ae19-04be24c2d408"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TANGGAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="224" y="9" width="100" height="20" uuid="c29b58c0-0972-4bcf-abd2-9fa8014db5c5"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="341" y="9" width="100" height="20" uuid="9d5355e5-da60-4ac7-80ab-9983d15d67a4"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BAYAR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="455" y="9" width="100" height="20" uuid="9975f810-6b14-4bf3-8621-16063357b4e2"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[KEMBALI]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="2fe3cd3a-2206-43fe-9c97-d6853240c8b8"/>
+				<textFieldExpression><![CDATA[$F{penjualan_order_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="112" y="0" width="100" height="20" uuid="c9a22224-2c12-4e48-81e3-8ba569ba860b"/>
+				<textFieldExpression><![CDATA[$F{penjualan_order_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="224" y="0" width="100" height="20" uuid="57da6068-5368-44f8-b459-58cb3b908d31"/>
+				<textFieldExpression><![CDATA[$F{penjualan_total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="341" y="0" width="100" height="20" uuid="dc30dbd1-7ab2-4895-89e8-baf34d4fd997"/>
+				<textFieldExpression><![CDATA[$F{penjualan_bayar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="0" width="100" height="20" uuid="1d2eb36f-2a3b-4ac9-a0ef-5240dad96922"/>
+				<textFieldExpression><![CDATA[$F{penjualan_kembali}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
